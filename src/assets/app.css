@@ -1,0 +1,21 @@
+#app {
+    font-family: "Roboto";
+  }
+  #navbar {
+    border-radius: 0%;
+    background-color: #9564ce;
+  }
+  .fa-bars {
+    color: white;
+  }
+  #logo {
+    color: white;
+  }
+
+  #sidebar{
+      /* background-color: #f1f1f6; */
+  }
+
+  #navbar .toggle-btns{
+      color: white;
+  }

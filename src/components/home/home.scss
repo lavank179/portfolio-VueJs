@@ -1,0 +1,70 @@
+@import "../../assets/mediaqueries.scss";
+
+$white-color: white;
+
+#home {
+  background-color: #e1ccec;
+  .hover-item {
+    transition: 0.3s;
+
+    &:hover {
+      transform: translate(0, -7px);
+    }
+  }
+
+  p:nth-child(2) {
+      font-size: 20px;
+      font-weight: 600;
+  }
+
+  @include for-desktop {
+    #title {
+      padding-top: 100px;
+      padding-bottom: 100px;
+
+      p:nth-child(1) {
+        font-family: "Aladin";
+        font-size: 80px;
+      }
+
+      p:nth-child(2) {
+        // font-size: 20px;
+        // font-weight: 600;
+      }
+    }
+  }
+
+  @include for-tablet {
+    & #title {
+      padding-top: 50px;
+      padding-bottom: 50px;
+
+      p:nth-child(1) {
+        font-family: "Aladin";
+        font-size: 80px;
+      }
+
+      p:nth-child(2) {
+        // font-size: 19px;
+        // font-weight: 700;
+      }
+    }
+  }
+
+  @include for-mobile {
+    & #title {
+      padding-top: 70px;
+      padding-bottom: 80px;
+
+      p:nth-child(1) {
+        font-family: "Aladin";
+        font-size: 60px;
+      }
+
+      p:nth-child(2) {
+        // font-size: 20px;
+        // font-weight: bolder;
+      }
+    }
+  }
+}

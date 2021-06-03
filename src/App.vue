@@ -1,0 +1,85 @@
+<template>
+  <v-app id="app">
+    <v-card id="navbar">
+      <v-toolbar style="background: none">
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-lg-none"
+          ><i class="fas fa-bars fa-lg"></i
+        ></v-app-bar-nav-icon>
+
+        <v-btn-toggle mandatory tile group class="d-none d-lg-block">
+          <v-btn v-for="(nav, index) in navs" :key="index" class="toggle-btns">{{
+            nav.name
+          }}</v-btn>
+        </v-btn-toggle>
+        <v-spacer></v-spacer>
+        <v-app-bar-nav-icon id="logo" width="30px"><v-img src="./src/assets/logo.png" width="30px"></v-img></v-app-bar-nav-icon>
+      </v-toolbar>
+    </v-card>
+
+    <v-navigation-drawer v-model="drawer" absolute temporary id="sidebar">
+      <v-card flat outlined class="rounded-0">
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>{{ appTitle }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense nav>
+        <v-list-item-group active-class="deep-purple--text text--accent-4">
+          <v-list-item v-for="(nav, index) in navs" :key="index">
+            <v-list-item-icon>
+              <v-icon style="font-size: 20px;">{{ nav.icons }}</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>{{ nav.name }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      </v-card>
+    </v-navigation-drawer>
+
+    <v-main>
+        <app-home></app-home>
+    </v-main>
+  </v-app>
+</template>
+
+<script>
+import Home from "./components/home/Home.vue";
+import About from "./components/about/About.vue";
+import Footer from "./components/footer/Footer.vue";
+
+export default {
+  data() {
+    return {
+      appTitle: "Lavan Kumar CH",
+      navs: {
+        1: { name: "Home", icons: "fas fa-home fa-sm" },
+        2: { name: "About", icons: "far fa-address-card fa-lg" },
+        3: { name: "Resume", icons: "fas fa-tags fa-lg" },
+        4: { name: "Works", icons: "fas fa-laptop-code fa-lg" },
+        5: { name: "Contact", icons: "far fa-comment-alt fa-lg" },
+        6: { name: "Login", icons: "fas fa-sign-in-alt fa-lg" },
+      },
+      drawer: false,
+    };
+  },
+  components: {
+    appHome: Home,
+    appAbout: About,
+    appFooter: Footer,
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@import './assets/app.css';
+</style>
