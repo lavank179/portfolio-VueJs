@@ -13,18 +13,47 @@ $white-color: white;
   }
 
   p:nth-child(2) {
-      font-size: 20px;
-      font-weight: 600;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  #down-arrow{
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite alternate;
+    transition: 0.3s;
+
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+
+  @-webkit-keyframes action{
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes action {
+    0% { 
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-15px);
+    }
   }
 
   @include for-desktop {
     #title {
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: 110px;
+      padding-bottom: 120px;
 
       p:nth-child(1) {
         font-family: "Aladin";
-        font-size: 80px;
+        font-size: 90px;
+        line-height: 108px;
       }
 
       p:nth-child(2) {
@@ -32,22 +61,49 @@ $white-color: white;
         // font-weight: 600;
       }
     }
+    #socialIcons {
+      padding-bottom: 120px;
+      & i {
+        color: #9230be;
+      }
+    }
+    #down-arrow {
+      width: 43px;
+      height: 43px;
+    }
+    & {
+      padding-bottom: 80px;
+    }
   }
 
   @include for-tablet {
     & #title {
-      padding-top: 50px;
-      padding-bottom: 50px;
+      padding-top: 80px;
+      padding-bottom: 90px;
 
       p:nth-child(1) {
         font-family: "Aladin";
-        font-size: 80px;
+        font-size: 78px;
+        line-height: 108px;
       }
 
       p:nth-child(2) {
         // font-size: 19px;
         // font-weight: 700;
       }
+    }
+    #socialIcons {
+      padding-bottom: 90px;
+      & i {
+        color: #9230be;
+      }
+    }
+    #down-arrow {
+      width: 50px;
+      height: 50px;
+    }
+    & {
+      padding-bottom: 80px;
     }
   }
 
@@ -65,6 +121,19 @@ $white-color: white;
         // font-size: 20px;
         // font-weight: bolder;
       }
+    }
+    #socialIcons {
+      padding-bottom: 60px;
+      & i {
+        color: #9230be;
+      }
+    }
+    #down-arrow {
+      width: 40px;
+      height: 40px;
+    }
+    & {
+      padding-bottom: 82.5px;
     }
   }
 }

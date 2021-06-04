@@ -1,0 +1,28 @@
+[
+  {
+    "personal": {
+      "firstName": "Lavan Kumar",
+      "lastName": "CH",
+      "age": 20,
+      "fatherName": "Satya Narayan CH",
+      "motherName": "Dhana Lakshmi",
+      "nationality": "Indian"
+    },
+    "contact": {
+      "phone": "+918072097287",
+      "fatherPhone": "+919791105058",
+      "address": "Puzhal",
+      "city": "Chennai",
+      "state": "Tamilnadu",
+      "country": "India"
+    },
+    "education": {},
+    "socialAccounts": {
+      "facebook": "https://www.facebook.com/profile.php?id=100009303211539",
+      "email": "chlavankumar179@gmail.com",
+      "github": "https://github.com/lavank179/",
+      "linkedin": "https://www.linkedin.com/in/lavankumarch179/",
+      "instagram": "http://instagram.com/lavankumarch/"
+    }
+  }
+]
