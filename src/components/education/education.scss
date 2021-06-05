@@ -1,0 +1,26 @@
+@import "../../assets/mediaqueries.scss";
+
+$white-color: white;
+
+#about {
+  background-color: #fff;
+  .hover-item {
+    transition: 0.3s;
+
+    &:hover {
+      transform: translate(0, -7px);
+    }
+  }
+
+  @include for-desktop {
+  }
+
+  @include for-md {
+  }
+
+  @include for-tablet {
+  }
+
+  @include for-mobile {
+  }
+}

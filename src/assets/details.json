@@ -17,8 +17,31 @@
       "state": "Tamilnadu",
       "country": "India"
     },
-    "education": {},
+    "education": {
+      "Hindustan Institue Of Technology and Science": {
+        "Degree": "Bachelor of Technology",
+        "Department": "Computer Science and Engineering",
+        "Marks": "95.6",
+        "city": "Chennai"
+      },
+      "Sethu Bhaskara Matriculation Hr. Sec. School": {
+        "Degree": "Higher Secondary(HSC)",
+        "Department": "MPCC",
+        "Marks": "91",
+        "city": "Chennai"
+      },
+      "Dr. Sivanthi Adithanar Matriculation School": {
+        "Degree": "SSLC",
+        "Department": "",
+        "Marks": "95",
+        "city": "Chennai"
+      }
+    },
     "socialAccounts": {
+      "instagram": {
+        "link": "http://instagram.com/lavankumarch/",
+        "icon": "fab fa-instagram fa-2x"
+      },
       "facebook": {
         "link": "https://www.facebook.com/profile.php?id=100009303211539",
         "icon": "fab fa-facebook-square fa-2x"
@@ -35,9 +58,9 @@
         "link": "https://www.linkedin.com/in/lavankumarch179/",
         "icon": "fab fa-linkedin fa-2x"
       },
-      "instagram": {
-        "link": "http://instagram.com/lavankumarch/",
-        "icon": "fab fa-instagram fa-2x"
+      "twitter": {
+        "link": "https://twitter.com/lavank179",
+        "icon": "fab fa-twitter fa-2x"
       }
     }
   }

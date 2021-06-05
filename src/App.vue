@@ -56,9 +56,13 @@
 
     <v-main>
       <app-home v-bind:details="detail[0]"></app-home>
-      <br />
+      <hr />
+      <h2>About Me</h2>
       <app-about v-bind:bio="detail[0].personal.bio"></app-about>
-      <app-resume></app-resume>
+      <hr />
+      <h2>Education</h2>
+      <app-education v-bind:education="details[0].education"></app-education>
+      <hr />
     </v-main>
   </v-app>
 </template>
@@ -66,7 +70,7 @@
 <script>
 import Home from "./components/home/Home.vue";
 import About from "./components/about/About.vue";
-import Resume from "./components/resume/Resume.vue";
+import Education from "./components/education/Education.vue";
 import Footer from "./components/footer/Footer.vue";
 import axios from "axios";
 
@@ -76,10 +80,11 @@ export default {
       navs: {
         1: { name: "Home", icons: "fas fa-home fa-sm" },
         2: { name: "About", icons: "far fa-address-card fa-lg" },
-        3: { name: "Resume", icons: "fas fa-tags fa-lg" },
-        4: { name: "Works", icons: "fas fa-laptop-code fa-lg" },
-        5: { name: "Contact", icons: "far fa-comment-alt fa-lg" },
-        6: { name: "Login", icons: "fas fa-sign-in-alt fa-lg" },
+        3: { name: "Education", icons: "fas fa-graduation-cap fa-lg" },
+        4: { name: "Skills", icons: "fas fa-tags fa-lg" },
+        5: { name: "Projects", icons: "fas fa-laptop-code fa-lg" },
+        6: { name: "Contact", icons: "far fa-comment-alt fa-lg" },
+        7: { name: "Login", icons: "fas fa-sign-in-alt fa-lg" },
       },
       drawer: false,
       detail: [],
@@ -88,7 +93,7 @@ export default {
   components: {
     appHome: Home,
     appAbout: About,
-    appResume: Resume,
+    appEducation: Education,
     appFooter: Footer,
   },
   created() {
@@ -105,5 +110,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./assets/app.css";
+@import "./assets/app.scss";
 </style>

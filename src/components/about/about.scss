@@ -1,9 +1,7 @@
 @import "../../assets/mediaqueries.scss";
 
-$white-color: white;
-
 #about {
-    background-color: #fff;
+  background-color: #fff;
 
   @import "./box-animate.scss";
   @import "./profile-animate.scss";
@@ -19,26 +17,13 @@ $white-color: white;
     #profile-pic {
       width: 300px;
       height: 350px;
-      margin-top: 100px;
-      margin-bottom: 100px;
+      margin-top: 70px;
+      margin-bottom: 120px;
     }
 
     #bio {
-      margin-top: 180px;
-      margin-bottom: 280px;
-
-      #title {
-        text-align: left;
-        p {
-          font-size: 30px;
-          font-weight: 600;
-          color: blueviolet;
-          &:hover {
-            -webkit-animation: pulse;
-            animation-duration: 1s;
-          }
-        }
-      }
+      margin-top: 90px;
+      margin-bottom: 100px;
     }
   }
 
@@ -51,21 +36,8 @@ $white-color: white;
     }
 
     #bio {
-      margin-top: 180px;
+      margin-top: 100px;
       margin-bottom: 130px;
-
-      #title {
-        text-align: left;
-        p {
-          font-size: 30px;
-          font-weight: 600;
-          color: blueviolet;
-          &:hover {
-            -webkit-animation: pulse;
-            animation-duration: 1s;
-          }
-        }
-      }
     }
   }
 
@@ -73,26 +45,13 @@ $white-color: white;
     #profile-pic {
       width: 280px;
       height: 290px;
-      margin-top: 120px;
-      margin-bottom: 130px;
+      margin-top: 50px;
+      margin-bottom: 30px;
     }
 
     #bio {
-      margin-top: 120px;
+      margin-top: 50px;
       margin-bottom: 110px;
-
-      #title {
-        text-align: left;
-        p {
-          font-size: 30px;
-          font-weight: 600;
-          color: blueviolet;
-          &:hover {
-            -webkit-animation: pulse;
-            animation-duration: 1s;
-          }
-        }
-      }
     }
   }
 
@@ -100,26 +59,13 @@ $white-color: white;
     #profile-pic {
       width: 250px;
       height: 270px;
-      margin-top: 80px;
-      margin-bottom: 80px;
+      margin-top: 50px;
+      margin-bottom: 30px;
     }
 
     #bio {
       margin-top: 50px;
-      margin-bottom: 100px;
-
-      #title {
-        text-align: left;
-        p {
-          font-size: 30px;
-          font-weight: 600;
-          color: blueviolet;
-          &:hover {
-            -webkit-animation: pulse;
-            animation-duration: 1s;
-          }
-        }
-      }
+      margin-bottom: 110px;
     }
   }
 }
