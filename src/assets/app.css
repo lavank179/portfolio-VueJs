@@ -1,9 +1,14 @@
 #app {
-    font-family: "Roboto";
+    font-family: "Fira Sans";
   }
   #navbar {
     border-radius: 0%;
     background-color: #9564ce;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
   .fa-bars {
     color: white;
@@ -14,6 +19,10 @@
 
   #sidebar{
       /* background-color: #f1f1f6; */
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
   }
 
   #navbar .toggle-btns{

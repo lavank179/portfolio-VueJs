@@ -3,12 +3,13 @@
 $white-color: white;
 
 #home {
-  background-color: #e1ccec;
+  background-color: #f4edf8;
   .hover-item {
     transition: 0.3s;
 
     &:hover {
       transform: translate(0, -7px);
+      cursor: pointer;
     }
   }
 
@@ -17,17 +18,17 @@ $white-color: white;
     font-weight: 600;
   }
 
-  #down-arrow{
+  #down-arrow {
     -webkit-animation: action 1s infinite alternate;
     animation: action 1s infinite alternate;
     transition: 0.3s;
 
-    &:hover{
+    &:hover {
       opacity: 0.7;
     }
   }
 
-  @-webkit-keyframes action{
+  @-webkit-keyframes action {
     0% {
       transform: translateY(0);
     }
@@ -37,7 +38,7 @@ $white-color: white;
   }
 
   @keyframes action {
-    0% { 
+    0% {
       transform: translateY(0);
     }
     100% {
@@ -46,6 +47,37 @@ $white-color: white;
   }
 
   @include for-desktop {
+    #title {
+      padding-top: 110px;
+      padding-bottom: 120px;
+
+      p:nth-child(1) {
+        font-family: "Aladin";
+        font-size: 90px;
+        line-height: 108px;
+      }
+
+      p:nth-child(2) {
+        // font-size: 20px;
+        // font-weight: 600;
+      }
+    }
+    #socialIcons {
+      padding-bottom: 120px;
+      & i {
+        color: #9230be;
+      }
+    }
+    #down-arrow {
+      width: 43px;
+      height: 43px;
+    }
+    & {
+      padding-bottom: 80px;
+    }
+  }
+
+  @include for-md {
     #title {
       padding-top: 110px;
       padding-bottom: 120px;

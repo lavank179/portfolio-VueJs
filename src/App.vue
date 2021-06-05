@@ -1,7 +1,7 @@
 <template>
   <v-app id="app">
     <v-card id="navbar">
-      <v-toolbar style="background: none">
+      <v-toolbar style="background: none" id="toolbar" flat>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-lg-none"
           ><i class="fas fa-bars fa-lg"></i
         ></v-app-bar-nav-icon>
@@ -29,7 +29,10 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>{{ detail[0].personal.firstName }} {{ detail[0].personal.lastName }}</v-list-item-title>
+            <v-list-item-title
+              >{{ detail[0].personal.firstName }}
+              {{ detail[0].personal.lastName }}</v-list-item-title
+            >
           </v-list-item-content>
         </v-list-item>
 
@@ -53,6 +56,9 @@
 
     <v-main>
       <app-home v-bind:details="detail[0]"></app-home>
+      <br />
+      <app-about v-bind:bio="detail[0].personal.bio"></app-about>
+      <app-resume></app-resume>
     </v-main>
   </v-app>
 </template>
@@ -60,13 +66,13 @@
 <script>
 import Home from "./components/home/Home.vue";
 import About from "./components/about/About.vue";
+import Resume from "./components/resume/Resume.vue";
 import Footer from "./components/footer/Footer.vue";
 import axios from "axios";
 
 export default {
   data() {
     return {
-      appTitle: "Lavan Kumar CH",
       navs: {
         1: { name: "Home", icons: "fas fa-home fa-sm" },
         2: { name: "About", icons: "far fa-address-card fa-lg" },
@@ -82,15 +88,18 @@ export default {
   components: {
     appHome: Home,
     appAbout: About,
+    appResume: Resume,
     appFooter: Footer,
   },
   created() {
-    axios.get("./src/assets/details.json").then((response) => {
-      return response.data;
-    })
-    .then(data =>{
-      this.detail = data;
-    });
+    axios
+      .get("./src/assets/details.json")
+      .then((response) => {
+        return response.data;
+      })
+      .then((data) => {
+        this.detail = data;
+      });
   },
 };
 </script>

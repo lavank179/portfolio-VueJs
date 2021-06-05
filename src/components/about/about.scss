@@ -1,0 +1,125 @@
+@import "../../assets/mediaqueries.scss";
+
+$white-color: white;
+
+#about {
+    background-color: #fff;
+
+  @import "./box-animate.scss";
+  @import "./profile-animate.scss";
+  .hover-item {
+    transition: 0.3s;
+
+    &:hover {
+      transform: translate(0, -7px);
+    }
+  }
+
+  @include for-desktop {
+    #profile-pic {
+      width: 300px;
+      height: 350px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    #bio {
+      margin-top: 180px;
+      margin-bottom: 280px;
+
+      #title {
+        text-align: left;
+        p {
+          font-size: 30px;
+          font-weight: 600;
+          color: blueviolet;
+          &:hover {
+            -webkit-animation: pulse;
+            animation-duration: 1s;
+          }
+        }
+      }
+    }
+  }
+
+  @include for-md {
+    #profile-pic {
+      width: 280px;
+      height: 290px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    #bio {
+      margin-top: 180px;
+      margin-bottom: 130px;
+
+      #title {
+        text-align: left;
+        p {
+          font-size: 30px;
+          font-weight: 600;
+          color: blueviolet;
+          &:hover {
+            -webkit-animation: pulse;
+            animation-duration: 1s;
+          }
+        }
+      }
+    }
+  }
+
+  @include for-tablet {
+    #profile-pic {
+      width: 280px;
+      height: 290px;
+      margin-top: 120px;
+      margin-bottom: 130px;
+    }
+
+    #bio {
+      margin-top: 120px;
+      margin-bottom: 110px;
+
+      #title {
+        text-align: left;
+        p {
+          font-size: 30px;
+          font-weight: 600;
+          color: blueviolet;
+          &:hover {
+            -webkit-animation: pulse;
+            animation-duration: 1s;
+          }
+        }
+      }
+    }
+  }
+
+  @include for-mobile {
+    #profile-pic {
+      width: 250px;
+      height: 270px;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+
+    #bio {
+      margin-top: 50px;
+      margin-bottom: 100px;
+
+      #title {
+        text-align: left;
+        p {
+          font-size: 30px;
+          font-weight: 600;
+          color: blueviolet;
+          &:hover {
+            -webkit-animation: pulse;
+            animation-duration: 1s;
+          }
+        }
+      }
+    }
+  }
+}

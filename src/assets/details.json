@@ -6,7 +6,8 @@
       "age": 20,
       "fatherName": "Satya Narayan CH",
       "motherName": "Dhana Lakshmi",
-      "nationality": "Indian"
+      "nationality": "Indian",
+      "bio": "I am a web developer with a vast array of knowledge in many different front end and back end languages,responsive frameworks, databases, and best code practices. My objective is simply to be the best web developer that I can be and to contribute to the technology industry all that I know and can do. I'm a third year UG(computer science) student at Hindustan University."
     },
     "contact": {
       "phone": "+918072097287",
@@ -18,11 +19,26 @@
     },
     "education": {},
     "socialAccounts": {
-      "facebook": "https://www.facebook.com/profile.php?id=100009303211539",
-      "email": "chlavankumar179@gmail.com",
-      "github": "https://github.com/lavank179/",
-      "linkedin": "https://www.linkedin.com/in/lavankumarch179/",
-      "instagram": "http://instagram.com/lavankumarch/"
+      "facebook": {
+        "link": "https://www.facebook.com/profile.php?id=100009303211539",
+        "icon": "fab fa-facebook-square fa-2x"
+      },
+      "email": {
+        "link": "mailto:chlavankumar179@gmail.com",
+        "icon": "fas fa-envelope fa-2x"
+      },
+      "github": {
+        "link": "https://github.com/lavank179/",
+        "icon": "fab fa-github fa-2x"
+      },
+      "linkedin": {
+        "link": "https://www.linkedin.com/in/lavankumarch179/",
+        "icon": "fab fa-linkedin fa-2x"
+      },
+      "instagram": {
+        "link": "http://instagram.com/lavankumarch/",
+        "icon": "fab fa-instagram fa-2x"
+      }
     }
   }
 ]
