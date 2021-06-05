@@ -61,8 +61,9 @@
       <app-about v-bind:bio="detail[0].personal.bio"></app-about>
       <hr />
       <h2>Education</h2>
-      <app-education v-bind:education="details[0].education"></app-education>
+      <app-education v-bind:education="detail[0].education"></app-education>
       <hr />
+      <h2>Skills</h2>
     </v-main>
   </v-app>
 </template>

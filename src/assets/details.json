@@ -21,20 +21,23 @@
       "Hindustan Institue Of Technology and Science": {
         "Degree": "Bachelor of Technology",
         "Department": "Computer Science and Engineering",
-        "Marks": "95.6",
-        "city": "Chennai"
+        "Marks": "9.56 CGPA",
+        "city": "Chennai",
+        "Duration": "July, 2018 - Present"
       },
       "Sethu Bhaskara Matriculation Hr. Sec. School": {
         "Degree": "Higher Secondary(HSC)",
         "Department": "MPCC",
-        "Marks": "91",
-        "city": "Chennai"
+        "Marks": "91 %",
+        "city": "Chennai",
+        "Duration": "May, 2016 - 2018"
       },
       "Dr. Sivanthi Adithanar Matriculation School": {
         "Degree": "SSLC",
         "Department": "",
-        "Marks": "95",
-        "city": "Chennai"
+        "Marks": "95 %",
+        "city": "Chennai",
+        "Duration": "June, 2005 - 2016"
       }
     },
     "socialAccounts": {
