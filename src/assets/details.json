@@ -65,6 +65,18 @@
         "link": "https://twitter.com/lavank179",
         "icon": "fab fa-twitter fa-2x"
       }
+    },
+    "skills": {
+      "Java": "java",
+      "Python": "python-48",
+      "HTML": "html-5",
+      "CSS": "css-3",
+      "Sass": "sass-48",
+      "Bootstrap": "bootstrap-48",
+      "JavaScript": "javascript-48",
+      "VueJS": "vue-js-48",
+      "PHP": "php-logo-40",
+      "DataBase": "cloud-database-64"
     }
   }
 ]
