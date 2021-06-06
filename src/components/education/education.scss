@@ -13,13 +13,6 @@ $white-color: white;
   }
 
   #content {
-    margin-top: 100px;
-    margin-bottom: 100px;
-
-    #rows{
-      content: "<hr/>";
-    }
-
     p:nth-child(1) {
       font-size: 29px;
       line-height: 29px;
@@ -45,18 +38,62 @@ $white-color: white;
       font-size: 18px;
       line-height: 18px;
       font-weight: 500;
+      color: #9564ce;
     }
   }
 
   @include for-desktop {
+    #content {
+      margin-top: 100px;
+      margin-bottom: 100px;
+
+      #rows {
+        hr {
+          display: none;
+        }
+      }
+    }
   }
 
   @include for-md {
+    #content {
+      margin-top: 100px;
+      margin-bottom: 100px;
+
+      #rows {
+        hr {
+          display: none;
+        }
+      }
+    }
   }
 
   @include for-tablet {
+    #content {
+      margin-top: 100px;
+      margin-bottom: 100px;
+
+      #rows {
+        hr {
+          display: none;
+        }
+      }
+    }
   }
 
   @include for-mobile {
+    #content {
+      margin-top: 60px;
+      margin-bottom: 60px;
+
+      #rows {
+        hr {
+          display: block;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          border: 1px solid silver;
+        }
+      }
+    }
   }
 }
