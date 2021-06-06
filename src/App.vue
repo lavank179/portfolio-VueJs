@@ -67,6 +67,7 @@
       <app-skills v-bind:skillset="detail[0].skills"></app-skills>
       <hr>
       <h2>My Projects</h2>
+      <app-projects v-bind:projects="detail[0].projects"></app-projects>
     </v-main>
   </v-app>
 </template>
@@ -76,6 +77,7 @@ import Home from "./components/home/Home.vue";
 import About from "./components/about/About.vue";
 import Education from "./components/education/Education.vue";
 import Skills from "./components/skills/Skills.vue";
+import Projects from "./components/projects/Projects.vue";
 import Footer from "./components/footer/Footer.vue";
 import axios from "axios";
 
@@ -100,6 +102,7 @@ export default {
     appAbout: About,
     appEducation: Education,
     appSkills: Skills,
+    appProjects: Projects,
     appFooter: Footer,
   },
   created() {

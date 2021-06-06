@@ -77,6 +77,43 @@
       "VueJS": "vue-js-48",
       "PHP": "php-logo-40",
       "DataBase": "cloud-database-64"
-    }
+    },
+    "projects": [
+      {
+        "title": "Power_Piezo",
+        "description": "Power_Piezo  -   <a href='http://lavankumar.heliohost.org/powerpiezo/' target='_blank'> Visit this Site </a>",
+        "src": "./src/assets/projects/powerpiezo.jpg"
+      },
+      {
+        "title": "Weather_App",
+        "description": "Weather_App   -   <a href='https://lavankumarch.netlify.app/' target='_blank'> Visit this Site </button>",
+        "src": "./src/assets/projects/weather-app.jpg"
+      },
+      {
+        "title": "Shop_Appz",
+        "description": "Shop_Appz",
+        "src": "./src/assets/projects/shopappz.jpg"
+      },
+      {
+        "title": "Secret_Diary",
+        "description": "Secret_Diary",
+        "src": "./src/assets/projects/secret-diary.png"
+      },
+      {
+        "title": "TANSIM",
+        "description": "TANSIM  -   <a href='http://lavank.byethost32.com/tansim_auth/' target='_blank'> Visit this Site </button>",
+        "src": "./src/assets/projects/tansim.png"
+      },
+      {
+        "title": "Vasa_Infotech",
+        "description": "Vasa_Infotech",
+        "src": "./src/assets/projects/vasa-infotech.png"
+      },
+      {
+        "title": "Console_Automation",
+        "description": "Console_Automation",
+        "src": "./src/assets/projects/console-automation.png"
+      }
+    ]
   }
 ]

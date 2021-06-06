@@ -1,0 +1,15 @@
+@import "../../mediaqueries.scss";
+
+.images-wrapper {
+  .image {
+    width: 260px;
+    height: 150px;
+    border: 1px ridge black;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  justify-content: space-evenly;
+  row-gap: 30px;
+  column-gap: -20%;
+}
