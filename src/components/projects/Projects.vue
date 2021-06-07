@@ -20,7 +20,6 @@
                 color="#9564CE"
                 v-for="(image, imageIndex) in items"
                 :key="imageIndex"
-                @click="index = imageIndex"
               >
                 <template v-slot:activator="{ on, attrs }">
                   <img 
@@ -28,6 +27,7 @@
                   :src="image.src"
                   v-bind="attrs"
                   v-on="on"
+                  @click="index = imageIndex"
                 /></template>
                 <span>{{ image.title }}</span>
               </v-tooltip>
