@@ -81,17 +81,17 @@
     "projects": [
       {
         "title": "Power_Piezo",
-        "description": "Power_Piezo  -   <a href='http://lavankumar.heliohost.org/powerpiezo/' target='_blank'> Visit this Site </a>",
+        "description": "Power_Piezo  -   <a href='http://lavankumarch.heliohost.org/powerpiezo/' target='_blank'> Visit this Site </a>",
         "src": "./src/assets/projects/powerpiezo.jpg"
       },
       {
         "title": "Weather_App",
-        "description": "Weather_App   -   <a href='https://lavankumarch.netlify.app/' target='_blank'> Visit this Site </button>",
+        "description": "Weather_App   -   <a href='https://lavankumarch.netlify.app/' target='_blank'> Visit this Site </a>",
         "src": "./src/assets/projects/weather-app.jpg"
       },
       {
         "title": "Shop_Appz",
-        "description": "Shop_Appz",
+        "description": "Shop_Appz   -   <a href='http://lavankumarch.heliohost.org/ShopAppz/' target='_blank'> Visit this Site </a>",
         "src": "./src/assets/projects/shopappz.jpg"
       },
       {
@@ -101,7 +101,7 @@
       },
       {
         "title": "TANSIM",
-        "description": "TANSIM  -   <a href='http://lavank.byethost32.com/tansim_auth/' target='_blank'> Visit this Site </button>",
+        "description": "TANSIM  -   <a href='http://lavank.byethost32.com/tansim_auth/' target='_blank'> Visit this Site </a>",
         "src": "./src/assets/projects/tansim.png"
       },
       {
@@ -113,6 +113,11 @@
         "title": "Console_Automation",
         "description": "Console_Automation",
         "src": "./src/assets/projects/console-automation.png"
+      },
+      {
+        "title": "Marvel_IoT",
+        "description": "Marvel_IoT  -   <a href='http://lavanram.000webhostapp.com/marvel_iot/' target='_blank'> Visit this Site </a>",
+        "src": "./src/assets/projects/marvel-iot.png"
       }
     ]
   }

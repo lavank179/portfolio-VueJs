@@ -4,12 +4,14 @@
   .image {
     width: 260px;
     height: 150px;
-    border: 1px ridge black;
+    border: 3.5px outset #bd9ee0;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   justify-content: space-evenly;
-  row-gap: 30px;
+  row-gap: 45px;
   column-gap: -20%;
 }
