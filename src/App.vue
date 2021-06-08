@@ -71,6 +71,9 @@
       <hr>
       <h2>Experience</h2>
       <app-experience v-bind:experience="detail[0].experience"></app-experience>
+      <hr>
+      <h2>Contact</h2>
+      <app-contact></app-contact>
     </v-main>
   </v-app>
 </template>
@@ -82,6 +85,7 @@ import Education from "./components/education/Education.vue";
 import Skills from "./components/skills/Skills.vue";
 import Projects from "./components/projects/Projects.vue";
 import Experience from "./components/experience/Experience.vue";
+import Contact from "./components/contact/Contact.vue";
 import Footer from "./components/footer/Footer.vue";
 import axios from "axios";
 
@@ -108,6 +112,7 @@ export default {
     appSkills: Skills,
     appProjects: Projects,
     appExperience: Experience,
+    appContact: Contact,
     appFooter: Footer,
   },
   created() {
