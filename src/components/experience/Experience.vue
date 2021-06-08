@@ -1,28 +1,40 @@
 <template>
-  <section align="center" id="education">
+  <section align="center" id="experience">
+    <br /><br /><br />
     <v-row>
       <v-col lg="1" md="1" sm="1" cols="1"></v-col>
       <v-col lg="10" md="10" sm="10" cols="10">
         <div id="content">
-          <div v-for="(val, key) in exp" :key="key" id="rows">
-            <v-row>
-              <v-col lg="10" md="10" sm="10" cols="12" align="left">
-                <p>{{ key }}, {{ val }}</p>
-                <p>{{ val }}</p>
-                <br />
-                <p>{{ val.Department }}</p>
-                <p>Secured : {{ val }}</p>
-              </v-col>
-              <v-col lg="2" md="2" sm="2" cols="12" align="left">
-                <h4>{{ val }}</h4>
-              </v-col>
-            </v-row>
-            <hr>
+          <div id="rows">
+            <v-expansion-panels focusable>
+              <v-expansion-panel v-for="(val, key) in exp" :key="key">
+                <v-expansion-panel-header
+                  ><p>{{ val.role }}</p></v-expansion-panel-header
+                >
+                <v-expansion-panel-content>
+                  <v-row>
+                    <v-col lg="10" md="10" sm="10" cols="12" align="left">
+                      <br>
+                      <p>{{ key }} &nbsp; - &nbsp; {{ val.type }}</p>
+                      <br />
+                      <p>{{ val.description }}</p>
+                      <p>{{ val.city }}</p>
+                    </v-col>
+                    <v-col lg="2" md="2" sm="2" cols="12" align="left">
+                      <br>
+                      <h4>{{ val.duration }}</h4>
+                    </v-col>
+                  </v-row>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
+            <hr />
           </div>
         </div>
       </v-col>
       <v-col lg="1" md="1" sm="1" cols="1"></v-col>
     </v-row>
+    <br /><br /><br />
   </section>
 </template>
 

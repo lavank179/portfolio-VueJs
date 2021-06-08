@@ -120,6 +120,21 @@
         "src": "./src/assets/projects/marvel-iot.png"
       }
     ],
-    "experience": {}
+    "experience": {
+      "Talent_Takeaways": {
+        "type": "Internship",
+        "role": "PHP Web Developer",
+        "description": "Full stack Internship with majorly worked in Core PHP and mysql website with Frontend.",
+        "duration": "4 Nov,2020 - 5 Dec, 2020",
+        "city": "Chennai, Tamilnadu"
+      },
+      "Cyces_Innovation_Labs_LLP": {
+        "type": "Internship",
+        "role": "PHP Full Stack Developer",
+        "description": "Full Stack PHP Intern. Worked with core PHP, CMS, Full stack web development and SEO.",
+        "duration": "28 Nov,2020 - 28 Feb, 2021",
+        "city": "Chennai, Tamilnadu"
+      }
+    }
   }
 ]
