@@ -2,8 +2,8 @@
   <section align="center" id="contact">
     <br /><br /><br />
     <v-row>
-      <v-col lg="3" md="3" sm="1" cols="auto"></v-col>
-      <v-col lg="6" md="6" sm="10" cols="12">
+      <v-col lg="4" md="4" sm="1" cols="auto"></v-col>
+      <v-col lg="4" md="4" sm="10" cols="12">
         <div id="content">
           <v-card>
             <h2>If you have any queries, submit here.</h2>
@@ -11,43 +11,59 @@
           <br /><br />
           <v-card>
             <br />
-            <form class="mx-5" id="contact-form">
-              <v-text-field
-                v-model="name"
-                :error-messages="nameErrors"
-                :counter="12"
-                label="Name"
-                required
-                outlined
-                @input="$v.name.$touch()"
-                @blur="$v.name.$touch()"
-              ></v-text-field>
-              <v-text-field
-                v-model="email"
-                :error-messages="emailErrors"
-                label="Email"
-                required
-                outlined
-                @input="$v.email.$touch()"
-                @blur="$v.email.$touch()"
-              ></v-text-field>
-              <v-textarea
-                v-model="message"
-                :error-messages="messageErrors"
-                :counter="150"
-                label="Message"
-                required
-                outlined
-                @input="$v.message.$touch()"
-                @blur="$v.message.$touch()"
-              ></v-textarea>
+            <form id="contact-form">
+                <v-text-field
+                  v-model="name"
+                  :error-messages="nameErrors"
+                  :counter="12"
+                  label="Name"
+                  required
+                  outlined
+                  color="purple darken-1"
+                  dense
+                  @input="$v.name.$touch()"
+                  @blur="$v.name.$touch()"
+                ></v-text-field>
+                <v-text-field
+                  v-model="email"
+                  :error-messages="emailErrors"
+                  label="Email"
+                  required
+                  outlined
+                  color="purple darken-1"
+                  dense
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
+                ></v-text-field>
+                <v-textarea
+                  v-model="message"
+                  :error-messages="messageErrors"
+                  :counter="150"
+                  label="Message"
+                  required
+                  outlined
+                  color="purple darken-1"
+                  dense
+                  @input="$v.message.$touch()"
+                  @blur="$v.message.$touch()"
+                ></v-textarea>
+
               <v-btn @click="submit">submit</v-btn>
             </form>
             <br />
           </v-card>
+          <v-snackbar v-model="snackbar" :timeout="timeout">
+            {{ text }}
+
+            <template v-slot:action="{ attrs }">
+              <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">
+                Close
+              </v-btn>
+            </template>
+          </v-snackbar>
         </div>
       </v-col>
-      <v-col lg="3" md="3" sm="1" cols="auto"></v-col>
+      <v-col lg="4" md="4" sm="1" cols="auto"></v-col>
     </v-row>
     <br /><br /><br /><br /><br /><br />
   </section>
@@ -57,6 +73,7 @@
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
 import emailsjs from "emailjs-com";
+import axios from "axios";
 
 export default {
   mixins: [validationMixin],
@@ -73,6 +90,9 @@ export default {
       serviceId: "service_8kz99my",
       templateId: "template_ksgd7hc",
       userId: "user_bFUSUHm0blQaO5gyE0Krn",
+      snackbar: false,
+      text: "",
+      timeout: 4000,
     };
   },
   computed: {
@@ -101,23 +121,79 @@ export default {
     },
   },
   methods: {
-    submit(e) {
+    submit() {
       this.$v.$touch();
-      emailsjs.send(this.serviceId, this.templateId, {
-        name: this.name,
-        email: this.email,
-        message: this.message,
-      }, this.userId)
-      .then(function(){
-          console.log('SUCCESS!');
-      }, function(error){
-          console.log('FAILED...', error);
-      });
-    console.log(this.name, this.email, this.message);
-      this.$v.$reset();
-      this.name = "";
-      this.email = "";
-      this.message = "";
+      let mail = this.email;
+      mail = mail.replace(".", "");
+      mail = mail.replace(".", "");
+      mail = mail.replace("@", "");
+      if (this.uploadFire(this.name, this.email, this.message, mail)) {
+        console.log("entered 1");
+        if (this.sendEmail()) {
+          console.log("entered 2");
+          // snackbar trigger
+          this.text = "Message sent succesfully! Thank you for contacting";
+          this.snackbar = true;
+          this.$v.$reset();
+          this.name = "";
+          this.email = "";
+          this.message = "";
+        } else {
+          // snackbar trigger
+          this.text = "Message not sent. Email error, Try after sometime";
+        }
+      } else {
+        // snackbar trigger
+        this.text = "Message not sent. Cloud error, Try after sometime";
+      }
+    },
+    uploadFire(v1, v2, v3, v4) {
+      let status = false;
+      status = axios
+        .post(
+          "https://vue-cli-com-default-rtdb.firebaseio.com/portfolio/" +
+            v4 +
+            ".json",
+          {
+            name: v1,
+            email: v2,
+            message: v3,
+          }
+        )
+        .then(function (response) {
+          console.log("SUCCESS! Fire", response);
+          return true;
+        })
+        .catch(function (error) {
+          console.log("FAILED! Fire", error);
+          return false;
+        });
+      return status;
+    },
+    sendEmail() {
+      let status = false;
+      status = emailsjs
+        .send(
+          this.serviceId,
+          this.templateId,
+          {
+            name: this.name,
+            email: this.email,
+            message: this.message,
+          },
+          this.userId
+        )
+        .then(
+          function () {
+            console.log("SUCCESS! Mail");
+            return true;
+          },
+          function (error) {
+            console.log("FAILED! Mail", error);
+            return false;
+          }
+        );
+      return status;
     },
   },
 };
