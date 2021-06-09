@@ -1,6 +1,6 @@
 <template>
   <section align="center" id="contact">
-    <br /><br /><br />
+    <br /><br />
     <v-row>
       <v-col lg="4" md="4" sm="1" cols="1"></v-col>
       <v-col lg="4" md="4" sm="10" cols="10">
@@ -81,7 +81,7 @@
       </v-col>
       <v-col lg="4" md="4" sm="1" cols="1"></v-col>
     </v-row>
-    <br /><br /><br /><br /><br /><br />
+    <br /><br /><br />
   </section>
 </template>
 

@@ -7,14 +7,10 @@
         ></v-app-bar-nav-icon>
 
         <v-btn-toggle mandatory tile group class="d-none d-lg-block">
-          <a
-            v-for="(nav, index) in navs"
-            :key="index"
-            :href="'#' + nav.name"
-            v-smooth-scroll
-            class="toggle-btns"
-          >
-            <v-btn>{{ nav.name }}</v-btn></a
+          <v-btn class="toggle-btns" v-for="(nav, index) in navs" :key="index"
+            ><a :href="'#' + nav.name" v-smooth-scroll>
+              {{ nav.name }}</a
+            ></v-btn
           >
         </v-btn-toggle>
         <v-spacer></v-spacer>
@@ -83,6 +79,7 @@
       <hr />
       <h2>Contact</h2>
       <app-contact></app-contact>
+      <app-footer></app-footer>
     </v-main>
   </v-app>
 </template>
