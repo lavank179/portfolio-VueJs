@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Designation from "./Designation";
+import Designation from "./Designation.vue";
 export default {
   props: ["details"],
   data() {

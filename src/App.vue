@@ -7,11 +7,14 @@
         ></v-app-bar-nav-icon>
 
         <v-btn-toggle mandatory tile group class="d-none d-lg-block">
-          <v-btn
+          <a
             v-for="(nav, index) in navs"
             :key="index"
+            :href="'#' + nav.name"
+            v-smooth-scroll
             class="toggle-btns"
-            >{{ nav.name }}</v-btn
+          >
+            <v-btn>{{ nav.name }}</v-btn></a
           >
         </v-btn-toggle>
         <v-spacer></v-spacer>
@@ -54,24 +57,30 @@
       </v-card>
     </v-navigation-drawer>
 
-    <v-main>
+    <v-main id="Home">
       <app-home v-bind:details="detail[0]"></app-home>
+      <div id="About"></div>
       <hr />
       <h2>About Me</h2>
       <app-about v-bind:bio="detail[0].personal.bio"></app-about>
+      <div id="Education"></div>
       <hr />
       <h2>Education</h2>
       <app-education v-bind:education="detail[0].education"></app-education>
+      <div id="Skills"></div>
       <hr />
       <h2>Skills</h2>
       <app-skills v-bind:skillset="detail[0].skills"></app-skills>
-      <hr>
+      <div id="Projects"></div>
+      <hr />
       <h2>My Projects</h2>
       <app-projects v-bind:projects="detail[0].projects"></app-projects>
-      <hr>
+      <div id="Experience"></div>
+      <hr />
       <h2>Experience</h2>
       <app-experience v-bind:experience="detail[0].experience"></app-experience>
-      <hr>
+      <div id="Contact"></div>
+      <hr />
       <h2>Contact</h2>
       <app-contact></app-contact>
     </v-main>
@@ -93,13 +102,30 @@ export default {
   data() {
     return {
       navs: {
-        1: { name: "Home", icons: "fas fa-home fa-sm" },
-        2: { name: "About", icons: "far fa-address-card fa-lg" },
-        3: { name: "Education", icons: "fas fa-graduation-cap fa-lg" },
-        4: { name: "Skills", icons: "fas fa-tags fa-lg" },
-        5: { name: "Projects", icons: "fas fa-laptop-code fa-lg" },
-        6: { name: "Contact", icons: "far fa-comment-alt fa-lg" },
-        7: { name: "Login", icons: "fas fa-sign-in-alt fa-lg" },
+        1: { name: "Home", icons: "fas fa-home fa-sm", id: "#home" },
+        2: { name: "About", icons: "far fa-address-card fa-lg", id: "#about" },
+        3: {
+          name: "Education",
+          icons: "fas fa-graduation-cap fa-lg",
+          id: "#education",
+        },
+        4: { name: "Skills", icons: "fas fa-tags fa-lg", id: "#skills" },
+        5: {
+          name: "Projects",
+          icons: "fas fa-laptop-code fa-lg",
+          id: "#projects",
+        },
+        6: {
+          name: "Experience",
+          icons: "fas fa-laptop-code fa-lg",
+          id: "#experience",
+        },
+        7: {
+          name: "Contact",
+          icons: "far fa-comment-alt fa-lg",
+          id: "#contact",
+        },
+        8: { name: "Login", icons: "fas fa-sign-in-alt fa-lg", id: "#" },
       },
       drawer: false,
       detail: [],
