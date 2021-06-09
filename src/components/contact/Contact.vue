@@ -2,56 +2,72 @@
   <section align="center" id="contact">
     <br /><br /><br />
     <v-row>
-      <v-col lg="4" md="4" sm="1" cols="auto"></v-col>
-      <v-col lg="4" md="4" sm="10" cols="12">
+      <v-col lg="4" md="4" sm="1" cols="1"></v-col>
+      <v-col lg="4" md="4" sm="10" cols="10">
         <div id="content">
-          <v-card>
-            <h2>If you have any queries, submit here.</h2>
+          <v-card :elevation="e1" @mouseenter="e1 = '6'" @mouseleave="e1 = ''">
+            <h1>Connect with Me &nbsp; <i class="far fa-handshake"></i></h1>
           </v-card>
           <br /><br />
-          <v-card>
+          <v-card :elevation="e2" @mouseenter="e2 = '6'" @mouseleave="e2 = ''">
             <br />
-            <form id="contact-form">
-                <v-text-field
-                  v-model="name"
-                  :error-messages="nameErrors"
-                  :counter="12"
-                  label="Name"
-                  required
-                  outlined
-                  color="purple darken-1"
-                  dense
-                  @input="$v.name.$touch()"
-                  @blur="$v.name.$touch()"
-                ></v-text-field>
-                <v-text-field
-                  v-model="email"
-                  :error-messages="emailErrors"
-                  label="Email"
-                  required
-                  outlined
-                  color="purple darken-1"
-                  dense
-                  @input="$v.email.$touch()"
-                  @blur="$v.email.$touch()"
-                ></v-text-field>
-                <v-textarea
-                  v-model="message"
-                  :error-messages="messageErrors"
-                  :counter="150"
-                  label="Message"
-                  required
-                  outlined
-                  color="purple darken-1"
-                  dense
-                  @input="$v.message.$touch()"
-                  @blur="$v.message.$touch()"
-                ></v-textarea>
+            <form id="contact-form" class="mx-3">
+              <v-text-field
+                v-model="name"
+                :error-messages="nameErrors"
+                :counter="12"
+                label="Name"
+                required
+                outlined
+                color="purple darken-1"
+                dense
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+              ></v-text-field>
+              <v-text-field
+                v-model="email"
+                :error-messages="emailErrors"
+                label="Email"
+                required
+                outlined
+                color="purple darken-1"
+                dense
+                @input="$v.email.$touch()"
+                @blur="$v.email.$touch()"
+              ></v-text-field>
+              <v-textarea
+                v-model="message"
+                :error-messages="messageErrors"
+                :counter="150"
+                label="Message"
+                required
+                outlined
+                color="purple darken-1"
+                dense
+                @input="$v.message.$touch()"
+                @blur="$v.message.$touch()"
+              ></v-textarea>
 
-              <v-btn @click="submit">submit</v-btn>
+              <v-btn
+                @click="submit"
+                color="purple darken-1"
+                :disabled="$v.$invalid"
+                >submit</v-btn
+              >
+              <v-btn @click="reset" color="orange lighten-3">Reset</v-btn>
             </form>
+
+            <!-- progress-loader -->
+            <v-overlay :value="overlay" :absolute="absolute"
+              ><v-progress-circular
+                indeterminate
+                color="purple"
+              ></v-progress-circular>
+            </v-overlay>
             <br />
           </v-card>
+
+          <!-- popup snackbar after form sent -->
           <v-snackbar v-model="snackbar" :timeout="timeout">
             {{ text }}
 
@@ -63,7 +79,7 @@
           </v-snackbar>
         </div>
       </v-col>
-      <v-col lg="4" md="4" sm="1" cols="auto"></v-col>
+      <v-col lg="4" md="4" sm="1" cols="1"></v-col>
     </v-row>
     <br /><br /><br /><br /><br /><br />
   </section>
@@ -84,6 +100,8 @@ export default {
   },
   data() {
     return {
+      e1: '',
+      e2: '',
       name: "",
       email: "",
       message: "",
@@ -92,7 +110,9 @@ export default {
       userId: "user_bFUSUHm0blQaO5gyE0Krn",
       snackbar: false,
       text: "",
-      timeout: 4000,
+      timeout: 6000,
+      overlay: false,
+      absolute: true,
     };
   },
   computed: {
@@ -121,15 +141,25 @@ export default {
     },
   },
   methods: {
-    submit() {
+    reset() {
+      this.$v.$reset();
+      this.name = "";
+      this.email = "";
+      this.message = "";
+    },
+    async submit() {
+      this.overlay = true;
       this.$v.$touch();
       let mail = this.email;
       mail = mail.replace(".", "");
       mail = mail.replace(".", "");
       mail = mail.replace("@", "");
-      if (this.uploadFire(this.name, this.email, this.message, mail)) {
+      if (
+        (await this.uploadFire(this.name, this.email, this.message, mail)) ==
+        true
+      ) {
         console.log("entered 1");
-        if (this.sendEmail()) {
+        if ((await this.sendEmail()) == true) {
           console.log("entered 2");
           // snackbar trigger
           this.text = "Message sent succesfully! Thank you for contacting";
@@ -138,18 +168,21 @@ export default {
           this.name = "";
           this.email = "";
           this.message = "";
+          this.overlay = false;
         } else {
           // snackbar trigger
           this.text = "Message not sent. Email error, Try after sometime";
+          this.snackbar = true;
         }
       } else {
         // snackbar trigger
         this.text = "Message not sent. Cloud error, Try after sometime";
+        this.snackbar = true;
       }
     },
-    uploadFire(v1, v2, v3, v4) {
+    async uploadFire(v1, v2, v3, v4) {
       let status = false;
-      status = axios
+      status = await axios
         .post(
           "https://vue-cli-com-default-rtdb.firebaseio.com/portfolio/" +
             v4 +
@@ -160,8 +193,8 @@ export default {
             message: v3,
           }
         )
-        .then(function (response) {
-          console.log("SUCCESS! Fire", response);
+        .then(function () {
+          console.log("SUCCESS! Fire");
           return true;
         })
         .catch(function (error) {
@@ -170,9 +203,9 @@ export default {
         });
       return status;
     },
-    sendEmail() {
+    async sendEmail() {
       let status = false;
-      status = emailsjs
+      status = await emailsjs
         .send(
           this.serviceId,
           this.templateId,
