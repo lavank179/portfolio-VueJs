@@ -3,7 +3,6 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify' // path to vuetify export
 import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
-import VueSmoothScroll from 'vue2-smooth-scroll'
 import axios from "axios"
 
 async function detailL() {
@@ -18,10 +17,6 @@ async function detailL() {
     });
 
   Vue.use(CoolLightBox);
-  Vue.use(VueSmoothScroll, {
-    duration: 2000,
-    updateHistory: false,
-  });
 
 
   new Vue({

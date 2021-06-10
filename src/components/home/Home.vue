@@ -27,7 +27,6 @@
         alt="fluent-down-arrow"
         id="down-arrow"
         href="#About"
-        v-smooth-scroll
       ></v-img>
     </div>
   </section>
