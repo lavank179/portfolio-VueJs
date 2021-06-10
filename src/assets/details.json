@@ -43,27 +43,33 @@
     "socialAccounts": {
       "instagram": {
         "link": "http://instagram.com/lavankumarch/",
-        "icon": "fab fa-instagram fa-2x"
+        "icon": "fab fa-instagram fa-2x",
+        "icon2": "fab fa-instagram fa-lg"
       },
       "facebook": {
         "link": "https://www.facebook.com/profile.php?id=100009303211539",
-        "icon": "fab fa-facebook-square fa-2x"
+        "icon": "fab fa-facebook-square fa-2x",
+        "icon2": "fab fa-facebook-square fa-lg"
       },
       "email": {
         "link": "mailto:chlavankumar179@gmail.com",
-        "icon": "fas fa-envelope fa-2x"
+        "icon": "fas fa-envelope fa-2x",
+        "icon2": "fas fa-envelope fa-lg"
       },
       "github": {
         "link": "https://github.com/lavank179/",
-        "icon": "fab fa-github fa-2x"
+        "icon": "fab fa-github fa-2x",
+        "icon2": "fab fa-github fa-lg"
       },
       "linkedin": {
         "link": "https://www.linkedin.com/in/lavankumarch179/",
-        "icon": "fab fa-linkedin fa-2x"
+        "icon": "fab fa-linkedin fa-2x",
+        "icon2": "fab fa-linkedin fa-lg"
       },
       "twitter": {
         "link": "https://twitter.com/lavank179",
-        "icon": "fab fa-twitter fa-2x"
+        "icon": "fab fa-twitter fa-2x",
+        "icon2": "fab fa-twitter fa-lg"
       }
     },
     "skills": {

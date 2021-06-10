@@ -14,8 +14,8 @@
           >
         </v-btn-toggle>
         <v-spacer></v-spacer>
-        <v-app-bar-nav-icon id="logo" width="30px"
-          ><v-img src="./src/assets/logo.png" width="30px"></v-img
+        <v-app-bar-nav-icon id="logo" width="40px" class="pr-6"
+          ><v-img src="./src/assets/logo1.png" width="40px"></v-img
         ></v-app-bar-nav-icon>
       </v-toolbar>
     </v-card>
@@ -24,14 +24,11 @@
       <v-card flat outlined class="rounded-0">
         <v-list-item>
           <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+            <v-img src="./src/assets/images/lavan.jpeg"></v-img>
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title
-              >{{ detail[0].personal.firstName }}
-              {{ detail[0].personal.lastName }}</v-list-item-title
-            >
+            <v-list-item-title>{{ fName }} {{ lName }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -45,7 +42,9 @@
               </v-list-item-icon>
 
               <v-list-item-content>
-                <v-list-item-title>{{ nav.name }}</v-list-item-title>
+                <v-list-item-title :href="'#' + nav.name" v-smooth-scroll>
+                  {{ nav.name }}
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list-item-group>
@@ -79,7 +78,7 @@
       <hr />
       <h2>Contact</h2>
       <app-contact></app-contact>
-      <app-footer></app-footer>
+      <app-footer v-bind:ico="detail[0].socialAccounts"></app-footer>
     </v-main>
   </v-app>
 </template>
@@ -93,9 +92,9 @@ import Projects from "./components/projects/Projects.vue";
 import Experience from "./components/experience/Experience.vue";
 import Contact from "./components/contact/Contact.vue";
 import Footer from "./components/footer/Footer.vue";
-import axios from "axios";
 
 export default {
+  props: ['det'],
   data() {
     return {
       navs: {
@@ -126,6 +125,8 @@ export default {
       },
       drawer: false,
       detail: [],
+      fName: "",
+      lName: "",
     };
   },
   components: {
@@ -139,14 +140,9 @@ export default {
     appFooter: Footer,
   },
   created() {
-    axios
-      .get("./src/assets/details.json")
-      .then((response) => {
-        return response.data;
-      })
-      .then((data) => {
-        this.detail = data;
-      });
+    this.detail = this.det;
+    this.fName = this.detail[0].personal.firstName;
+    this.lName = this.detail[0].personal.lastName;
   },
 };
 </script>

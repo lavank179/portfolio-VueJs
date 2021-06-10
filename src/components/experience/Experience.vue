@@ -6,7 +6,7 @@
       <v-col lg="10" md="10" sm="10" cols="10">
         <div id="content">
           <div id="rows">
-            <v-expansion-panels focusable>
+            <v-expansion-panels style="z-index: 0">
               <v-expansion-panel v-for="(val, key) in exp" :key="key">
                 <v-expansion-panel-header
                   ><p>{{ val.role }}</p></v-expansion-panel-header

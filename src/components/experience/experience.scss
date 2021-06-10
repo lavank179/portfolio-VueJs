@@ -1,16 +1,5 @@
-@import "../../mediaqueries.scss";
-
-$white-color: white;
-
 #experience {
   background-color: #fff;
-  .hover-item {
-    transition: 0.3s;
-
-    &:hover {
-      transform: translate(0, -7px);
-    }
-  }
 
   #content {
     p:nth-child(1) {
@@ -21,25 +10,25 @@ $white-color: white;
       color: #6f37ae;
     }
 
-      p:nth-child(2) {
-        font-size: 20px;
-        line-height: 20px;
-        font-weight: 500;
-        text-transform: uppercase;
-      }
+    p:nth-child(2) {
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
 
-      p:nth-child(3),
-      p:nth-child(4) {
-        font-size: 18px;
-        line-height: 18px;
-        font-weight: 400;
-      }
+    p:nth-child(3),
+    p:nth-child(4) {
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 400;
+    }
 
-      h4 {
-        font-size: 18px;
-        line-height: 18px;
-        font-weight: 500;
-        color: #9564ce;
-      }
+    h4 {
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 500;
+      color: #9564ce;
+    }
   }
 }

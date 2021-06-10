@@ -26,6 +26,8 @@
         src="https://img.icons8.com/fluent/48/000000/long-arrow-down.png"
         alt="fluent-down-arrow"
         id="down-arrow"
+        href="#About"
+        v-smooth-scroll
       ></v-img>
     </div>
   </section>

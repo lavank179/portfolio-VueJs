@@ -37,7 +37,6 @@ export default {
   methods: {},
   created() {
     this.skills = this.skillset;
-    console.log(this.skills);
   },
 };
 </script>

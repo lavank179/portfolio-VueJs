@@ -82,6 +82,15 @@
       <v-col lg="4" md="4" sm="1" cols="1"></v-col>
     </v-row>
     <br /><br /><br />
+    <div align="center">
+      <v-img
+        src="https://img.icons8.com/fluent/48/000000/long-arrow-up.png"
+        alt="fluent-down-arrow"
+        id="up-arrow"
+        href="#Home"
+        v-smooth-scroll
+      ></v-img>
+    </div>
   </section>
 </template>
 
@@ -100,8 +109,8 @@ export default {
   },
   data() {
     return {
-      e1: '',
-      e2: '',
+      e1: "",
+      e2: "",
       name: "",
       email: "",
       message: "",
