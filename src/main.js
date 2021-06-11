@@ -8,7 +8,7 @@ import axios from "axios"
 async function detailL() {
   let d = [];
   d = await axios
-    .get("./src/assets/details.json")
+    .get("https://raw.githubusercontent.com/lavank179/portfolio-VueJs/master/src/assets/details.json")
     .then((response) => {
       return response.data;
     })
