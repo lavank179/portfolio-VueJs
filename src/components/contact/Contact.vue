@@ -88,6 +88,7 @@
         alt="fluent-down-arrow"
         id="up-arrow"
         href="#Home"
+        v-smooth-scroll
       ></v-img>
     </div>
   </section>

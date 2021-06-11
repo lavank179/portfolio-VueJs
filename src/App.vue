@@ -8,7 +8,7 @@
 
         <v-btn-toggle mandatory tile group class="d-none d-lg-block">
           <v-btn class="toggle-btns" v-for="(nav, index) in navs" :key="index"
-            ><a :href="'#' + nav.name">
+            ><a :href="'#' + nav.name" v-smooth-scroll>
               {{ nav.name }}</a
             ></v-btn
           >
@@ -42,7 +42,7 @@
               </v-list-item-icon>
 
               <v-list-item-content>
-                <v-list-item-title :href="'#' + nav.name">
+                <v-list-item-title :href="'#' + nav.name" v-smooth-scroll>
                   {{ nav.name }}
                 </v-list-item-title>
               </v-list-item-content>
