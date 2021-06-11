@@ -14,9 +14,9 @@
           >
         </v-btn-toggle>
         <v-spacer></v-spacer>
-        <v-app-bar-nav-icon id="logo" width="40px" class="pr-6"
+        <div id="logo" width="40px" class="pr-6" :href="'#Home'" v-smooth-scroll 
           ><v-img src="./src/assets/logo1.png" width="40px"></v-img
-        ></v-app-bar-nav-icon>
+        ></div>
       </v-toolbar>
     </v-card>
 

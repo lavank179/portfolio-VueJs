@@ -6,7 +6,19 @@
       <v-col lg="4" md="4" sm="10" cols="10">
         <div id="content">
           <v-card :elevation="e1" @mouseenter="e1 = '6'" @mouseleave="e1 = ''">
-            <h1>Connect with Me &nbsp; <i class="far fa-handshake"></i></h1>
+            <br />
+            <h3>
+              <a href="tel:+8072097287"> +91 80720 97287</a>
+              <i class="fa fa-phone-alt fa-sm"></i>
+            </h3>
+            <h3>
+              <a href="mailto:chlavankumar179@gmail.com">
+                chlavankumar179@gmail.com</a
+              >
+              <i class="fa fa-envelope fa-sm"></i>
+            </h3>
+            <br />
+            <h3>For any other queries, <i class="far fa-hand-point-down fa-lg"></i></h3>
           </v-card>
           <br /><br />
           <v-card :elevation="e2" @mouseenter="e2 = '6'" @mouseleave="e2 = ''">
