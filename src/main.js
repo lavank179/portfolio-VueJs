@@ -9,8 +9,9 @@ import VueSmoothScroll from 'vue2-smooth-scroll'
 async function detailL() {
   let d = [];
   d = await axios
-    .get("https://lavankumar.vercel.app/personal-details/details.json")
+    .get("https://lavan-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/0.json")
     .then((response) => {
+      // console.log(response.data.personal);
       return response.data;
     })
     .then((data) => {

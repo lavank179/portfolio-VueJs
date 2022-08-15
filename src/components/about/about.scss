@@ -13,6 +13,12 @@
     }
   }
 
+  #pro-image{
+    max-width: 100%;
+    max-height: auto;
+    object-fit: contain;
+  }
+
   @include for-desktop {
     #profile-pic {
       width: 300px;

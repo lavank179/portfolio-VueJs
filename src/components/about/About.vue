@@ -2,11 +2,13 @@
   <section align="center" id="about">
     <v-row>
       <v-col lg="4" md="4" sm="12" cols="12" align="center">
-        <v-img
-          src="./src/assets/images/lavan.jpeg"
+        <div id="profile-pic">
+          <v-img
+          :src="userBio.profileImage"
           alt="lavan kumar ch"
-          id="profile-pic"
+          id="pro-image"
         ></v-img>
+        </div>
       </v-col>
       <v-col lg="8" md="8" sm="12" cols="12">
         <v-row>
@@ -16,7 +18,7 @@
               <br />
               <div id="box">
                 <br /><br />
-                <p>{{ userBio }}</p>
+                <p>{{ userBio.bio }}</p>
                 <br />
               </div>
             </div>

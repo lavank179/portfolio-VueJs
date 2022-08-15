@@ -53,32 +53,32 @@
     </v-navigation-drawer>
 
     <v-main id="Home">
-      <app-home v-bind:details="detail[0]"></app-home>
+      <app-home v-bind:details="detail"></app-home>
       <div id="About"></div>
       <hr />
       <h2>About Me</h2>
-      <app-about v-bind:bio="detail[0].personal.bio"></app-about>
+      <app-about v-bind:bio="detail.personal"></app-about>
       <div id="Education"></div>
       <hr />
       <h2>Education</h2>
-      <app-education v-bind:education="detail[0].education"></app-education>
+      <app-education v-bind:education="detail.education"></app-education>
       <div id="Skills"></div>
       <hr />
       <h2>Skills</h2>
-      <app-skills v-bind:skillset="detail[0].skills"></app-skills>
+      <app-skills v-bind:skillset="detail.skills"></app-skills>
       <div id="Projects"></div>
       <hr />
       <h2>My Projects</h2>
-      <app-projects v-bind:projects="detail[0].projects"></app-projects>
+      <app-projects v-bind:projects="detail.projects"></app-projects>
       <div id="Experience"></div>
       <hr />
       <h2>Experience</h2>
-      <app-experience v-bind:experience="detail[0].experience"></app-experience>
+      <app-experience v-bind:experience="detail.experience"></app-experience>
       <div id="Contact"></div>
       <hr />
       <h2>Contact</h2>
       <app-contact></app-contact>
-      <app-footer v-bind:ico="detail[0].socialAccounts"></app-footer>
+      <app-footer v-bind:ico="detail.socialAccounts"></app-footer>
     </v-main>
   </v-app>
 </template>
@@ -141,8 +141,8 @@ export default {
   },
   created() {
     this.detail = this.det;
-    this.fName = this.detail[0].personal.firstName;
-    this.lName = this.detail[0].personal.lastName;
+    this.fName = this.detail.personal.firstName;
+    this.lName = this.detail.personal.lastName;
   },
 };
 </script>

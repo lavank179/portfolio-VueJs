@@ -8,7 +8,7 @@
           <v-card :elevation="e1" @mouseenter="e1 = '6'" @mouseleave="e1 = ''">
             <br />
             <h3>
-              <a href="tel:+8072097287"> +91 80720 97287</a>
+              <a href="tel:+918072097287"> +91 80720 97287</a>
               <i class="fa fa-phone-alt fa-sm"></i>
             </h3>
             <h3>
