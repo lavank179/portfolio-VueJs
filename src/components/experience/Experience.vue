@@ -8,17 +8,19 @@
           <div id="rows">
             <v-expansion-panels style="z-index: 0">
               <v-expansion-panel v-for="(val, key) in exp" :key="key">
-                <v-expansion-panel-header
-                  ><p>{{ val.role }}</p></v-expansion-panel-header
-                >
+                <v-expansion-panel-header title="Click to Expand">
+                  <p><i class="fa fa-angle-down fa-lg"></i> &nbsp; {{ val.role }}</p> 
+                  {{ val.city }}
+                </v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-row>
                     <v-col lg="10" md="10" sm="10" cols="12" align="left">
                       <br>
                       <p>{{ key }} &nbsp; - &nbsp; {{ val.type }}</p>
                       <br />
-                      <p>{{ val.description }}</p>
-                      <p>{{ val.city }}</p>
+                      <ul v-for="(desc, key) in val.description" :key="key">
+                        <li>{{ desc }}</li>
+                      </ul>
                     </v-col>
                     <v-col lg="2" md="2" sm="2" cols="12" align="left">
                       <br>

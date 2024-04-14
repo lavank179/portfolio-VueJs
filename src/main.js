@@ -11,7 +11,6 @@ async function detailL() {
   d = await axios
     .get("https://lavan-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/0.json")
     .then((response) => {
-      // console.log(response.data.personal);
       return response.data;
     })
     .then((data) => {

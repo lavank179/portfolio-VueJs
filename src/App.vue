@@ -57,7 +57,7 @@
       <div id="About"></div>
       <hr />
       <h2>About Me</h2>
-      <app-about v-bind:bio="detail.personal"></app-about>
+      <app-about v-bind:bio="detail.personal" title="Hover to see magic"></app-about>
       <div id="Education"></div>
       <hr />
       <h2>Education</h2>
@@ -77,7 +77,7 @@
       <div id="Contact"></div>
       <hr />
       <h2>Contact</h2>
-      <app-contact></app-contact>
+      <app-contact v-bind:contact="detail.contact"></app-contact>
       <app-footer v-bind:ico="detail.socialAccounts"></app-footer>
     </v-main>
   </v-app>

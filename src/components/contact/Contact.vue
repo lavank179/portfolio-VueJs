@@ -23,6 +23,8 @@
           <br /><br />
           <v-card :elevation="e2" @mouseenter="e2 = '6'" @mouseleave="e2 = ''">
             <br />
+            <v-alert dense dismissible type="info" v-if="text.length > 0">{{ text }}</v-alert>
+            <br />
             <form id="contact-form" class="mx-3">
               <v-text-field
                 v-model="name"
@@ -114,6 +116,7 @@ import axios from "axios";
 
 export default {
   mixins: [validationMixin],
+  props: ["contact"],
   validations: {
     name: { required, maxLength: maxLength(12) },
     email: { required, email },
@@ -126,15 +129,16 @@ export default {
       name: "",
       email: "",
       message: "",
-      serviceId: "service_8kz99my",
-      templateId: "template_ksgd7hc",
-      userId: "user_bFUSUHm0blQaO5gyE0Krn",
+      emailjs: [],
       snackbar: false,
       text: "",
       timeout: 6000,
       overlay: false,
       absolute: true,
     };
+  },
+  created() {
+    this.emailjs = this.contact["emailjs-service-id"];
   },
   computed: {
     nameErrors() {
@@ -167,6 +171,15 @@ export default {
       this.name = "";
       this.email = "";
       this.message = "";
+      this.text = "";
+    },
+    resetEmailBox() {
+      this.snackbar = true;
+      this.$v.$reset();
+      this.name = "";
+      this.email = "";
+      this.message = "";
+      this.overlay = false;
     },
     async submit() {
       this.overlay = true;
@@ -175,30 +188,14 @@ export default {
       mail = mail.replace(".", "");
       mail = mail.replace(".", "");
       mail = mail.replace("@", "");
-      if (
-        (await this.uploadFire(this.name, this.email, this.message, mail)) ==
-        true
-      ) {
-        console.log("entered 1");
-        if ((await this.sendEmail()) == true) {
-          console.log("entered 2");
-          // snackbar trigger
-          this.text = "Message sent succesfully! Thank you for contacting";
-          this.snackbar = true;
-          this.$v.$reset();
-          this.name = "";
-          this.email = "";
-          this.message = "";
-          this.overlay = false;
-        } else {
-          // snackbar trigger
-          this.text = "Message not sent. Email error, Try after sometime";
-          this.snackbar = true;
-        }
+      await this.uploadFire(this.name, this.email, this.message, mail);
+      if ((await this.sendEmail()) == true) {
+        this.text = "Message sent succesfully! Thank you for contacting";
+        this.resetEmailBox();
       } else {
-        // snackbar trigger
-        this.text = "Message not sent. Cloud error, Try after sometime";
-        this.snackbar = true;
+        this.text =
+          "Message not sent. Email send error, Try after sometime else contact this page owner";
+        this.resetEmailBox();
       }
     },
     async uploadFire(v1, v2, v3, v4) {
@@ -228,14 +225,14 @@ export default {
       let status = false;
       status = await emailsjs
         .send(
-          this.serviceId,
-          this.templateId,
+          this.emailjs["service-id"],
+          this.emailjs["template-id"],
           {
             name: this.name,
             email: this.email,
             message: this.message,
           },
-          this.userId
+          this.emailjs["user-id"]
         )
         .then(
           function () {
