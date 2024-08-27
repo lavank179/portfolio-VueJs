@@ -15,69 +15,49 @@
 
   @include for-desktop {
     #profile-pic {
-      margin-top: 70px;
-      margin-bottom: 120px;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
 
     #pro-image {
-      width: 325px;
-      height: 700px;
-    }
-
-    #bio {
-      margin-top: 90px;
-      margin-bottom: 100px;
+      width: 300px;
+      height: 600px;
     }
   }
 
   @include for-md {
     #profile-pic {
-      margin-top: 100px;
-      margin-bottom: 100px;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
 
     #pro-image {
       width: 280px;
       height: 550px;
-    }
-
-    #bio {
-      margin-top: 100px;
-      margin-bottom: 130px;
     }
   }
 
   @include for-tablet {
     #profile-pic {
-      margin-top: 50px;
-      margin-bottom: 30px;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
 
     #pro-image {
       width: 280px;
       height: 550px;
     }
-
-    #bio {
-      margin-top: 50px;
-      margin-bottom: 110px;
-    }
   }
 
   @include for-mobile {
     #profile-pic {
-      margin-top: 50px;
-      margin-bottom: 30px;
+      margin-top: 25px;
+      margin-bottom: 25px;
     }
 
     #pro-image {
       width: 280px;
       height: 500px;
-    }
-
-    #bio {
-      margin-top: 50px;
-      margin-bottom: 110px;
     }
   }
 }

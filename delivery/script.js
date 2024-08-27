@@ -6,7 +6,7 @@ async function testPassword() {
   );
 
   const password = await prompt(
-    "Please Enter the password to continue. \n If don't know please contact the ADMIN!!! \n PH - 8072097287"
+    "Please Enter the password to continue. \n If don't know please contact the ADMIN!!! \n EMAIL - chlavankumar179@gmail.com"
   );
 
   if (password === await response.json()) {

@@ -8,12 +8,12 @@
           <v-card :elevation="e1" @mouseenter="e1 = '6'" @mouseleave="e1 = ''">
             <br />
             <h3>
-              <a href="tel:+918072097287"> +91 80720 97287</a>
+              <a :href="contact_details[2]">{{ contact_details[0] }}</a>
               <i class="fa fa-phone-alt fa-sm"></i>
             </h3>
             <h3>
-              <a href="mailto:chlavankumar179@gmail.com">
-                chlavankumar179@gmail.com</a
+              <a :href="contact_details[3]">
+                {{ contact_details[1] }}</a
               >
               <i class="fa fa-envelope fa-sm"></i>
             </h3>
@@ -135,10 +135,15 @@ export default {
       timeout: 6000,
       overlay: false,
       absolute: true,
+      contact_details: [],
     };
   },
   created() {
     this.emailjs = this.contact["emailjs-service-id"];
+    this.contact_details[0] = this.contact["phone"];
+    this.contact_details[1] = this.contact["emailid"];
+    this.contact_details[2] = "tel:" + this.contact["phone"];
+    this.contact_details[3] = "mailto:" + this.contact["emailid"];
   },
   computed: {
     nameErrors() {
