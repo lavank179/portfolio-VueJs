@@ -1,4 +1,4 @@
-@import "../../mediaqueries.scss";
+@use "../../mediaqueries.scss" as mq;
 
 $white-color: white;
 
@@ -45,7 +45,7 @@ $white-color: white;
     }
   }
 
-  @include for-desktop {
+  @include mq.for-desktop {
     #title {
       padding-top: 110px;
       padding-bottom: 120px;
@@ -76,7 +76,7 @@ $white-color: white;
     }
   }
 
-  @include for-md {
+  @include mq.for-md {
     #title {
       padding-top: 110px;
       padding-bottom: 120px;
@@ -107,7 +107,7 @@ $white-color: white;
     }
   }
 
-  @include for-tablet {
+  @include mq.for-tablet {
     & #title {
       padding-top: 80px;
       padding-bottom: 90px;
@@ -138,7 +138,7 @@ $white-color: white;
     }
   }
 
-  @include for-mobile {
+  @include mq.for-mobile {
     & #title {
       padding-top: 70px;
       padding-bottom: 80px;

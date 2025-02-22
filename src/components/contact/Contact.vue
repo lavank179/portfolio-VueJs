@@ -255,5 +255,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "./contact.scss";
+@use "./contact.scss";
 </style>

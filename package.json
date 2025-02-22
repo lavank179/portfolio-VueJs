@@ -6,19 +6,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host localhost",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host localhost --port 8811",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "emailjs-com": "^2.6.4",
-    "node-sass": "^7.0.1",
-    "vue": "^2.5.11",
-    "vue-cool-lightbox": "^2.7.4",
-    "vue2-smooth-scroll": "^1.5.0",
-    "vuelidate": "^0.7.6",
-    "vuescroll": "^4.17.3",
-    "vuetify": "^2.5.1"
+    "sass": "^1.85.0",
+    "vue": "^2.7.16",
+    "vue-cool-lightbox": "^2.7.5",
+    "vue2-smooth-scroll": "^1.6.0",
+    "vuelidate": "^0.7.7",
+    "vuescroll": "^4.18.1",
+    "vuetify": "^2.7.2"
   },
   "browserslist": [
     "> 1%",
@@ -26,19 +26,19 @@
     "not ie <= 8"
   ],
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.7",
-    "file-loader": "^1.1.4",
-    "sass-loader": "^6.0.6",
-    "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "cross-env": "^5.2.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "sass-loader": "^7.3.1",
+    "vue-loader": "^13.7.3",
+    "vue-template-compiler": "^2.7.16",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^2.11.5"
   }
 }

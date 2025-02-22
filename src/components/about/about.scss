@@ -1,10 +1,12 @@
-@import "../../mediaqueries.scss";
+@use "../../mediaqueries.scss" as mq;
+@use "./box-animate.scss" as ba;
+@use "./profile-animate.scss" as pa;
 
 #about {
   background-color: #fff;
 
-  @import "./box-animate.scss";
-  @import "./profile-animate.scss";
+  @include ba.box-animate;
+  @include pa.profile-animate;
   .hover-item {
     transition: 0.3s;
 
@@ -13,7 +15,7 @@
     }
   }
 
-  @include for-desktop {
+  @include mq.for-desktop {
     #profile-pic {
       margin-top: 25px;
       margin-bottom: 25px;
@@ -25,7 +27,7 @@
     }
   }
 
-  @include for-md {
+  @include mq.for-md {
     #profile-pic {
       margin-top: 25px;
       margin-bottom: 25px;
@@ -37,7 +39,7 @@
     }
   }
 
-  @include for-tablet {
+  @include mq.for-tablet {
     #profile-pic {
       margin-top: 25px;
       margin-bottom: 25px;
@@ -49,7 +51,7 @@
     }
   }
 
-  @include for-mobile {
+  @include mq.for-mobile {
     #profile-pic {
       margin-top: 25px;
       margin-bottom: 25px;
