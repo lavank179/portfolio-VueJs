@@ -1,4 +1,4 @@
-@import "../../mediaqueries.scss";
+@use "../../mediaqueries.scss" as mq;
 
 $white-color: white;
 
@@ -42,7 +42,7 @@ $white-color: white;
     }
   }
 
-  @include for-desktop {
+  @include mq.for-desktop {
     #content {
       margin-top: 100px;
       margin-bottom: 100px;
@@ -55,7 +55,7 @@ $white-color: white;
     }
   }
 
-  @include for-md {
+  @include mq.for-md {
     #content {
       margin-top: 100px;
       margin-bottom: 100px;
@@ -68,7 +68,7 @@ $white-color: white;
     }
   }
 
-  @include for-tablet {
+  @include mq.for-tablet {
     #content {
       margin-top: 100px;
       margin-bottom: 100px;
@@ -81,7 +81,7 @@ $white-color: white;
     }
   }
 
-  @include for-mobile {
+  @include mq.for-mobile {
     #content {
       margin-top: 60px;
       margin-bottom: 60px;

@@ -148,5 +148,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "app.scss";
+@use "app.scss";
 </style>

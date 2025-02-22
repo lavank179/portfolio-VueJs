@@ -41,5 +41,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "./skills.scss";
+@use "./skills.scss";
 </style>
