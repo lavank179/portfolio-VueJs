@@ -23,5 +23,10 @@ jobs:
           page="$(curl http://localhost:5001/)"
           error_code=$?
           echo $error_code
-          echo $page
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          if [[ "$page" == *"I'm a Software Engineer who likes to design and build most scalable and robust applications."* ]]; then
+            echo "Found. Container is running well and serving the static page."
+          else
+            echo "Not found. Some error during build or deploy."
+            exit 1 # Fail the actions if not built or deploy.
+          fi
+      - run: echo "Hurray!!! The app is eligible for global deploy🍏"
