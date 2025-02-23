@@ -23,10 +23,21 @@ jobs:
           page="$(curl http://localhost:5001/)"
           error_code=$?
           echo $error_code
+
           if [[ "$page" == *"I'm a Software Engineer who likes to design and build most scalable and robust applications."* ]]; then
             echo "Found. Container is running well and serving the static page."
           else
             echo "Not found. Some error during build or deploy."
             exit 1 # Fail the actions if not built or deploy.
           fi
+        
+      - name: Cleanup Residuals
+        run: |
+          EXISTING_CONTAINER=$(docker ps | grep "portfolio" | awk -F " " '{print $1}')
+          EXISTING_IMAGE=$(docker images | grep "portfolio" | awk -F " " '{print $3}')
+          docker stop $EXISTING_CONTAINER
+          docker ps -a
+          docker images
+          docker rmi $EXISTING_IMAGE
+          echo "Cleanup done."
       - run: echo "Hurray!!! The app is eligible for global deploy🍏"
