@@ -37,7 +37,7 @@ jobs:
           EXISTING_IMAGE=$(docker images | grep "portfolio" | awk -F " " '{print $3}')
           docker stop $EXISTING_CONTAINER
           docker ps -a
-          docker images
-          docker rmi $EXISTING_IMAGE
+          docker images -a
+          docker rmi $EXISTING_IMAGE --force
           echo "Cleanup done."
       - run: echo "Hurray!!! The app is eligible for global deploy🍏"
