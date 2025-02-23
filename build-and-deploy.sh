@@ -7,7 +7,7 @@ RUN_ON_PORT=$3
 
 (
   set -e
-  EXISTING_IMAGE=$(docker images| grep "portfolio" | awk -F " " '{print $3}')
+  EXISTING_IMAGE=$(docker images | grep "portfolio" | awk -F " " '{print $3}')
   if [[ "$EXISTING_IMAGE" != "" ]]; then
     echo "Deleting existing image $EXISTING_IMAGE"
     docker rmi $EXISTING_IMAGE
