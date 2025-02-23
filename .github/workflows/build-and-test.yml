@@ -14,12 +14,12 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - name: Build
-      - run: |
+        run: |
           sudo chmod +x ./build-and-deploy.sh
           ./build-and-deploy.sh test1.0 deploy 5001
           docker ps
       - name: Test Container has static html page
-      - run: |
+        run: |
           page="$(curl http://localhost:5001/)"
           error_code=$?
           echo $error_code
