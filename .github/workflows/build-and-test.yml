@@ -5,6 +5,11 @@ on:
     branches:
     - '**'
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  TEST_IMAGE: test1.0
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -20,7 +25,7 @@ jobs:
       - name: Build
         run: |
           sudo chmod +x ./build-and-deploy.sh
-          ./build-and-deploy.sh test1.0 deploy 5001
+          ./build-and-deploy.sh ${{ TEST_IMAGE }} deploy 5001
           docker ps
       - name: Test Container has static html page
         run: |
@@ -35,13 +40,20 @@ jobs:
             exit 1 # Fail the actions if not built or deploy.
           fi
 
+      - name: Log in to the Container registry only if publish-image branch
+        if: github.ref == 'refs/heads/publish-image'
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Push the image to github registry only if publish-image branch
         if: github.ref == 'refs/heads/publish-image'
         run: |
-          docker ps
-          echo "runid: ${{ github.run_id }}"
-          echo "number: ${{ github.run_number }}"
-          echo "attempt: ${{ github.run_attmept }}"
+          docker tag portfolio:${{ TEST_IMAGE }} ${{ REGISTRY}}/${{ IMAGE_NAME }}:${{ github.run_number }}
+          docker images
+          docker push ${{ REGISTRY}}/${{ IMAGE_NAME }}:${{ github.run_number }}
         
       - name: Cleanup Residuals
         run: |
