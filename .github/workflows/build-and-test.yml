@@ -51,9 +51,10 @@ jobs:
       - name: Push the image to github registry only if publish-image branch
         if: github.ref == 'refs/heads/publish-image'
         run: |
-          docker tag portfolio:${{ env.TEST_IMAGE }} ${{ env.REGISTRY}}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          push_image_tag=$(echo '${{ env.REGISTRY}}/${{ env.IMAGE_NAME }}:${{ github.run_number }}' | tr '[:upper:]' '[:lower:]')
+          docker tag portfolio:${{ env.TEST_IMAGE }} $push_image_tag
           docker images
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          docker push $push_image_tag
         
       - name: Cleanup Residuals
         run: |
