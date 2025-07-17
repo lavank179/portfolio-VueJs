@@ -1,6 +1,15 @@
 name: Build And Test Container
 run-name: ${{ github.actor }} is starting the build action.
-on: [push]
+on:
+  push:
+    branches:
+    - '**'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  TEST_IMAGE: test1.0
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -16,7 +25,7 @@ jobs:
       - name: Build
         run: |
           sudo chmod +x ./build-and-deploy.sh
-          ./build-and-deploy.sh test1.0 deploy 5001
+          ./build-and-deploy.sh ${{ env.TEST_IMAGE }} deploy 5001
           docker ps
       - name: Test Container has static html page
         run: |
@@ -30,6 +39,22 @@ jobs:
             echo "Not found. Some error during build or deploy."
             exit 1 # Fail the actions if not built or deploy.
           fi
+
+      - name: Log in to the Container registry only if publish-image branch
+        if: github.ref == 'refs/heads/publish-image'
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push the image to github registry only if publish-image branch
+        if: github.ref == 'refs/heads/publish-image'
+        run: |
+          push_image_tag=$(echo '${{ env.REGISTRY}}/${{ env.IMAGE_NAME }}:${{ github.run_number }}' | tr '[:upper:]' '[:lower:]')
+          docker tag portfolio:${{ env.TEST_IMAGE }} $push_image_tag
+          docker images
+          docker push $push_image_tag
         
       - name: Cleanup Residuals
         run: |
