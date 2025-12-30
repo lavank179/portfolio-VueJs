@@ -22,6 +22,12 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.6' 
+          cache: 'npm'
+
       - name: Build
         run: |
           sudo chmod +x ./build-and-deploy.sh
@@ -69,5 +75,8 @@ jobs:
       - name: Npm build for portfolio-repo branch
         run: |
           node -v
-          npm cache clean -f
+          npm install
+          npm run build
+          rm -rf node_modules/
+          ls -a dist/*
       - run: echo "Hurray!!! The app is eligible for global deploy🍏"

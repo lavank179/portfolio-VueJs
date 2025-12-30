@@ -1,4 +1,4 @@
-FROM node:20.18.3-alpine
+FROM node:20.19.6-alpine
 
 # Set working directory
 WORKDIR /app
@@ -7,8 +7,8 @@ COPY package*.json ./
 RUN npm install
 # Copy the entire project
 COPY . .
-RUN npm run build
-RUN rm -rf node_modules/
+RUN npm run build && \
+    rm -rf node_modules/
 
 
 FROM nginx:latest
