@@ -65,4 +65,9 @@ jobs:
           docker images -a
           docker rmi $EXISTING_IMAGE --force
           echo "Cleanup done."
+      
+      - name: Npm build for portfolio-repo branch
+        run: |
+          node -V
+          npm cache clean -f
       - run: echo "Hurray!!! The app is eligible for global deploy🍏"
