@@ -25,7 +25,7 @@ jobs:
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: '20.18.3' 
+          node-version: '20.19.6' 
           cache: 'npm'
 
       - name: Build
@@ -73,10 +73,25 @@ jobs:
           echo "Cleanup done."
       
       - name: Npm build for portfolio-repo branch
+        # if: github.ref == 'refs/heads/master'
         run: |
           node -v
           npm install
           npm run build
           rm -rf node_modules/
           ls -a dist/*
+          - name: Pushes test file
+      - name: Push the build.js and build.js.map to portfolio secret repo
+        # if: github.ref == 'refs/heads/master'
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          source_file: 'dist/build.js'
+          destination_repo: 'lavank179/portfolio'
+          destination_folder: 'portfolio/dist'
+          user_email: 'chlavankumar179@gmail.com'
+          user_name: 'lavank179'
+          commit_message: 'A custom message for the commit'
+          destination_branch: 'test-cross-repo-copy'
       - run: echo "Hurray!!! The app is eligible for global deploy🍏"
