@@ -88,10 +88,10 @@ jobs:
         with:
           source_file: 'dist'
           destination_repo: 'lavank179/portfolio'
-          destination_folder: 'portfolio/dist'
+          destination_folder: 'portfolio'
           user_email: 'chlavankumar179@gmail.com'
           user_name: 'lavank179'
-          commit_message: 'A custom message for the commit'
+          commit_message: 'Update new portfolioVueJs build in actual portfolio repo - ${{ github.run_number }}'
           destination_branch: 'master'
           destination_branch_create: 'portfolioVueJs-${{ github.run_number }}'
       - run: echo "Hurray!!! The app is eligible for global deploy🍏"
