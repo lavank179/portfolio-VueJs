@@ -73,7 +73,7 @@ jobs:
           echo "Cleanup done."
       
       - name: Npm build for portfolio-repo branch
-        # if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         run: |
           node -v
           npm install
@@ -81,7 +81,7 @@ jobs:
           rm -rf node_modules/
           ls -a dist/*
       - name: Push the build.js and build.js.map to portfolio secret repo
-        # if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
